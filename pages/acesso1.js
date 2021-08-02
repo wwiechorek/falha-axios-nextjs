@@ -1,4 +1,5 @@
 import API from '../service/api'
+import { getAPIClient } from '../service/service'
 
 export default function page(props) {
     return <div>
@@ -8,6 +9,7 @@ export default function page(props) {
 }
 
 export const getServerSideProps = async (ctx) => {
+    const API = getAPIClient(ctx)
     const req1 = await API.get("http://localhost:3000/api/hello")
     console.log("acesso 1 req1", req1.data)
 
